@@ -1,30 +1,27 @@
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { GlobalHotKeys } from 'react-hotkeys';
 
-interface IAppProps
+
+export class App extends React.Component
 {
-
-}
-
-interface IAppState
-{
-	
-}
-
-export class App extends React.Component<IAppProps, IAppState>
-{
-	constructor(props: IAppProps)
-	{
-		super(props);
-
-		this.state = {};
-	}
-
 	public override render()
 	{
+		const keyMap = {
+			SPACE: 'space',
+		};
+
+		const handlers = {
+			SPACE: () => {
+				console.log("space");
+			},
+		};
+
 		return (
 			<>
 				Hello React
+				<GlobalHotKeys keyMap={keyMap} handlers={handlers} />
 			</>
 		);
 	}
